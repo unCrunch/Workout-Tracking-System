@@ -28,7 +28,7 @@ class Workout(models.Model):
     
 class WorkoutLog(models.Model):
     workout = models.ForeignKey(Workout, on_delete=models.CASCADE, related_name='logs')
-    exercise = models.ForeignKey(Exercise, on_delete=models.SET_NULL, related_name='exercises')
+    exercise = models.ForeignKey(Exercise, on_delete=models.SET_NULL, related_name='exercises', null=True)
     sets = models.IntegerField(blank=True, null=True)
     reps = models.IntegerField(blank=True, null=True)
     weight_kg = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
